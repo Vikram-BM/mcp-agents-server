@@ -1,0 +1,460 @@
+Ec2 instance:
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA2IygPsQgGU8FzbBoyaLzEsWiWSBrpVApwR7fXnQELGR51jQB
+fL6cjji7URu41PS8f4W/aOdtALCGnobyN35GR3Kja2E87YyEAvE+tva1tO4eFGQt
+orxSD7MjM+1bLEIx/VlTxJ2QCb7M7grJUSjAtWm+HRbm5JoA33gCvQ1grHp1napG
+oTwY2AxTc/XO6rOhP+dF3MZCKB37MDzLPORsLvhC9wg6IYd2h7haPZn/55MN4Qyi
+KPEZwch9zj3e4CpWpOTCHiSA0a3LXUwBUIT9igtnaOBOO7vC8OrvIQMtgLLg/DSa
+yBl/7NghFez+rxGsM44opcRRMr0XqEQk/bBSHwIDAQABAoIBAG7krNcXpnxvbEBm
+G3NOn/23+ah8osN4Zrl/7tE2xkBZf88CuNRB5HgsczhY4vEjFziSrG+zO63DuFyM
+LJPgdWr3ONqvY/0eHShIlF4rvueVnQ/CMWCJ4dgqW1enMC5dA66CxRQFwBJNhDJO
+kcOfA/ii2vmYlcrxVosZsQVRSXVpG39WFONtsDXsKuAbxRJfILIKhznd5lq/pYA6
+7XoA1LYqn4YnZ2zu7wtEiYDV/CWsgoBz923i2/JpppymfD4iAeVQXC0HsS8QFCSa
+q+1y+8vkyXXDujIPeZ8ZFzEEzxm4W6FSGClnonugpGfJjV7JBo7080gUIkIEe1jO
+uqG3JokCgYEA8fKlYtyf7P9SpanBAU2VwUFuhV3mJsgt4DM2uhioX/x4BvY8FyLZ
+yKys1rXFg5t67npIjG8lqH1nqMWEhXWDnbd2tUlpWpYUAktTClsYbZWkra4Ad+RS
+yPg8quk41RwLCeVHUfLiiFhg+VGXtrZczk1Bw7SUZ20/mnoZmYgZxZMCgYEA5SBY
+2StBGsFjgBi8+5QRiFNE9Nm6+vGP6moy1lyIpD6HDlwFIMHdtlIyLHpmtHTaTBQN
+lKHdIAz+wJ6Ypjecbp8imUu6Mbjo7lPJl2NGLzno7lu49UoaFV/EMcnAE8S/mTL/
+6nEAOurEPh77wkZTNENJSbXWw2jZ77YIppDEmMUCgYA2W5GUuISltmdXGOBn7opq
+tMyj4gjHRcooyNjOzqNljU9aIRA3EnljgIgEZSpO+yuPUKHkC0SmqiYT4Ox5H4HG
+eWWOLUQiOf2c1ld9yCGg3TH2Y1VvmjiPNlZK/8Lo/jfsrTpsyujiQRjoatBvGGGZ
+Z/oSggulgQH9Ltl5iP5hSQKBgQCaMK1539DdN31FK+CpkJhH3HmQKKHa1ArcXoE9
+nmHZ3bY3ZJeS1sPkOOZI5koNcIGjJu+IsXDEa9pYN6JUYSIlk3POI5b2dRBTqhEE
+jqshhuAI37LVZvusnJjERJe89e9WImr0Ev1rqKdNgr47m+XMSueb8gHH2NyooyCp
+Ls0OXQKBgQCJWs3+6qIg2fq0nkL8kA7Pw4BxyLdsWOqXLSbhNdT5sWCszNNe8fX1
+LQExk96oTey0JZ+XtqsW0xMVTEYIPwyFo+K11u8JhGrXn7boxq/BzLIbQbrcuutp
+J8X9rL/mEj1Erp6ueM4vRJH/6HVmEjNWwL6l2oiS7iZUrFcoE8tkQw==
+-----END RSA PRIVATE KEY-----
+
+This is the .pem to connect to the EC2 instance through SSH
+
+you can connect like this
+ssh -i ~/Downloads/AIA2AMCP.pem ubuntu@52.32.180.81
+make sure do chmod 400 on the pem file
+
+Task:
+
+Implement ASU class search public apis as a MCP tool in EC2 instance and expose it through Claude LLM
+
+ASU Class search API:
+
+https://eadvs-cscc-catalog-api.apps.asu.edu/catalog-microservices/api/v1/search/classes?&refine=Y&campusOrOnlineSelection=A&honors=F&promod=F&searchType=all&term=2257
+
+Response goes like this:
+{
+    "classes": [
+        {
+            "CLAS": {
+                "STRM": "2257",
+                "CLASSNBR": "77983",
+                "CRSEID": "131169",
+                "CRSEOFFERNBR": "3",
+                "CLASSSECTION": "3001",
+                "SESSIONCODE": "B",
+                "CLASSMTGNBR": "2",
+                "SUBJECT": "ABS",
+                "SUBJECTFORSORTING": "ABS",
+                "CATALOGNBR": "100",
+                "CATALOGNBRFORSORTING": "100",
+                "CAMPUS": "POLY",
+                "DESCR": "ASU at Polytechnic",
+                "LOCATION": "POLY",
+                "DESCR3": "Campus: Polytechnic",
+                "TITLE": "Discovering the Professions",
+                "TITLEFORSORTING": "Topic Discovering the Professions",
+                "COURSETITLELONG": "Discovering the Professions",
+                "STARTDATE": "2025-10-15 00:00:00.0",
+                "STARTTIME": null,
+                "ENDDATE": "2025-12-05 00:00:00.0",
+                "ENDTIME": null,
+                "MON": "N",
+                "TUES": "N",
+                "WED": "N",
+                "THURS": "N",
+                "FRI": "N",
+                "SAT": "N",
+                "SUN": "N",
+                "SCHEDULEPRINT": "Y",
+                "FACILITYID": "INTRT",
+                "DESCR1": "Internet",
+                "INSTRROLE": "",
+                "ENRLTOT": "36",
+                "ENRLCAP": "50",
+                "WAITTOT": "0",
+                "WAITCAP": "0",
+                "RQMNTDESIGNTN": "",
+                "DESCR4": "",
+                "DESCRFORMAL": "",
+                "CLASSNOTESSEQ": "0",
+                "DESCRLONG": "",
+                "ACADCAREER": "UGRD",
+                "COMPONENTPRIMARY": "LEC",
+                "DESCR2": "Lecture",
+                "UNITSMINIMUM": "1",
+                "UNITSMAXIMUM": "1",
+                "FLATAMOUNT1": "",
+                "FLATAMOUNT2": "",
+                "ASSOCIATEDCLASS": "3001",
+                "SSRCOMPONENT": "LEC",
+                "XLATLONGNAME": "Lecture",
+                "OPTIONALSECTION": "N",
+                "COUNTROWS": "0",
+                "CONSENT": "N",
+                "CRSTOPICID": "0",
+                "DESCR50": "",
+                "ENRLSTAT": "O",
+                "CLASSSTAT": "A",
+                "INSTRUCTIONMODE": "HY",
+                "SCTNCOMBINEDID": "",
+                "ACADGROUP": "LS",
+                "DESCR5": "Integrative Sciences & Arts",
+                "ACADORG": "CASA",
+                "DESCR501": "Applied Sciences and Arts",
+                "DESCR6": "School of Applied Sciences and Arts",
+                "SCHEDPRINTINSTR": "",
+                "ASUBLDLOCATION": " ",
+                "ASUBLDNAME": "INTRT",
+                "CRSEID1": null,
+                "CRSEOFFERNBR1": null,
+                "CRSEREPEATABLE": "N",
+                "GRADINGBASIS": null,
+                "XLATLONGNAME1": null,
+                "FEESEXIST": null,
+                "DESCRLONG1": null,
+                "RQRMNTGROUP": null,
+                "DESCR31": null,
+                "DESCR254A": null,
+                "RQMNTDESIGNTN1": null,
+                "DESCR41": null,
+                "DESCRFORMAL1": null,
+                "CLASSTYPE": "E",
+                "TERMBEGINDATE": "2025-08-21 00:00:00.0",
+                "TERMENDDATE": "2025-12-15 00:00:00.0",
+                "CAPNBR": "101",
+                "CAPSTARTDATE": "2025-02-12 00:00:00.0",
+                "ENROLLDEADLINE": "2025-10-16 00:00:00.0",
+                "DROPRETAINRECORD": "2025-10-21 00:00:00.0",
+                "DROPWITHPENALTY": "2025-11-04 00:00:00.0",
+                "WITHDRAWWITHPENALTY": "2025-12-05 00:00:00.0",
+                "PROMOD": "N",
+                "INSTRUCTOREDIT": "N",
+                "OFFICIALSTARTDATE": "2025-10-15 00:00:00.0",
+                "OFFICIALENDDATE": "2025-12-05 00:00:00.0",
+                "PROMODCOHORTCD": null,
+                "CLASSDESCR": "DISCOVERING THE PROFESSIONS",
+                "LASTFULLUPDATETIMESTAMP": 1744765591504,
+                "KEYWORDSEARCHSTR": "abs discovering the professions  applied biological sciences discovering the professions ",
+                "KEYWORDSEARCHSTRNOINSTRUCTOR": "abs discovering the professions  applied biological sciences discovering the professions ",
+                "CLASSNOTENBR": "",
+                "CRSEATTEFFDT": "",
+                "CRSEATTVALUE": "",
+                "SSRCOUNT": 1,
+                "HASACTIVERESERVEDSEATS": "Y",
+                "DAYLIST": "",
+                "NOTES": [],
+                "NOTESNUMBERS": [],
+                "IFRAMENOTES": null,
+                "SSR": "Lecture",
+                "PASSENROLLDEADLINE": null,
+                "PASSTERM": "Y",
+                "SHOWSUNNUM": "Y",
+                "MTGDATESSTRTIME": null,
+                "MULTIPLEMTGDATES": "N",
+                "LOCATIONBUILDING": "[{\"NAMEFORSORTING\":\"INTERNET - HYBRID\",\"NAME\":\"Internet - Hybrid\",\"DESCR\":\"Hybrid classes\",\"ADDRESS\":\"Hybrid classes have one or more in person meetings.\",\"URL\":\"\"}]",
+                "BLDGCD": null,
+                "ADDRESS1": "",
+                "ADDRESS2": "",
+                "ADDRESS3": "",
+                "CITY": "",
+                "STATE": "",
+                "ASUBLDADDRESS": "",
+                "SUBJECTDESCRIPTION": "Applied Biological Sciences",
+                "INSTRUCTORSLASTNAMELIST": null,
+                "INSTRUCTORSFIRSTNAMELIST": null,
+                "INSTRUCTORSLIST": null,
+                "INSTRUCTORSFIRSTNAMESHOWALL": null,
+                "INSTRUCTORSLASTNAMESHOWALL": null,
+                "INSTRUCTORLISTFORKEYWORD": null,
+                "INSTRUCTORSLASTNAMELISTFORSORTING": "STAFF",
+                "MEETINGDATES": [
+                    [
+                        "10/15/2025",
+                        "12/5/2025"
+                    ]
+                ],
+                "MEETINGDATESFORSORTING": 1760511600000,
+                "STARTTIMES": [
+                    null
+                ],
+                "ENDTIMES": [
+                    null
+                ],
+                "ASUBLDNAMELIST": "INTRT",
+                "STARTTIMESFORSORTING": null,
+                "ENDTIMEFORMATTED": "",
+                "CLASSDAYS": "",
+                "CATALOGNBRNUMBER": 100,
+                "UNITSRANGE": "1 ",
+                "ASSOCIATEDCLASSNOTNULL": "3001",
+                "SHORT_DESC": "",
+                "STARTTIMEFORMATTED": "",
+                "id": "77983"
+            },
+            "SUBJECTNUMBER": "ABS 100",
+            "SECTIONCLASSNUMBER": "3001-(77983)",
+            "DAYLIST": [
+                ""
+            ],
+            "NOTES": "",
+            "HOURS": "1",
+            "SSR": "Lecture",
+            "LOCATIONBUILDING": [
+                {
+                    "NAMEFORSORTING": "INTERNET - HYBRID",
+                    "NAME": "Internet - Hybrid",
+                    "DESCR": "Hybrid classes",
+                    "ADDRESS": "Hybrid classes have one or more in person meetings.",
+                    "URL": ""
+                }
+            ],
+            "MEETINGSTARTDATES": [],
+            "MTGDATES": [],
+            "GROUPORG": "Integrative Sciences & Arts - School of Applied Sciences and Arts",
+            "KEYWORDMATCH": {
+                "value": 1,
+                "description": "ConstantScore(SCHEDULEPRINT:y)",
+                "details": []
+            },
+            "GSGOLD": "",
+            "GSMAROON": "",
+            "OFFEREDBY": {
+                "DEPARTMENT": "School of Applied Sciences and Arts",
+                "INFO": {
+                    "ACADORG": "CLS",
+                    "ASUCOLLEGEURL": "https://cisa.asu.edu/",
+                    "DESCRFORMAL": "College of Integrative Sciences and Arts",
+                    "ENROLLREQ": null,
+                    "ACADGROUP": "LS"
+                }
+            },
+            "HASSYLLABUS": false,
+            "seatInfo": {
+                "ENRL_CAP": 50,
+                "ENRL_TOT": 36
+            },
+            "reservedSeatsInfo": [
+                {
+                    "ENRL_CAP": 50,
+                    "ENRL_TOT": 36,
+                    "STUDENT_ENROLLED": null,
+                    "RSRV_CAP_NBR": 101,
+                    "ASU_SR_COHORT_CD": null,
+                    "ASU_SR_COHORT_CD2": null
+                }
+            ]
+        },
+        {
+            "CLAS": {
+                "STRM": "2257",
+                "CLASSNBR": "77984",
+                "CRSEID": "131169",
+                "CRSEOFFERNBR": "3",
+                "CLASSSECTION": "5301",
+                "SESSIONCODE": "B",
+                "CLASSMTGNBR": "1",
+                "SUBJECT": "ABS",
+                "SUBJECTFORSORTING": "ABS",
+                "CATALOGNBR": "100",
+                "CATALOGNBRFORSORTING": "100",
+                "CAMPUS": "POLY",
+                "DESCR": "ASU at Polytechnic",
+                "LOCATION": "ASUONLINE",
+                "DESCR3": "ASU Online",
+                "TITLE": "Discovering the Professions",
+                "TITLEFORSORTING": "Topic Discovering the Professions",
+                "COURSETITLELONG": "Discovering the Professions",
+                "STARTDATE": "2025-10-15 00:00:00.0",
+                "STARTTIME": null,
+                "ENDDATE": "2025-12-05 00:00:00.0",
+                "ENDTIME": null,
+                "MON": "N",
+                "TUES": "N",
+                "WED": "N",
+                "THURS": "N",
+                "FRI": "N",
+                "SAT": "N",
+                "SUN": "N",
+                "SCHEDULEPRINT": "Y",
+                "FACILITYID": "INTRT",
+                "DESCR1": "Internet",
+                "INSTRROLE": "",
+                "ENRLTOT": "41",
+                "ENRLCAP": "145",
+                "WAITTOT": "0",
+                "WAITCAP": "0",
+                "RQMNTDESIGNTN": "",
+                "DESCR4": "",
+                "DESCRFORMAL": "",
+                "CLASSNOTESSEQ": "0",
+                "DESCRLONG": "",
+                "ACADCAREER": "UGRD",
+                "COMPONENTPRIMARY": "LEC",
+                "DESCR2": "Lecture",
+                "UNITSMINIMUM": "1",
+                "UNITSMAXIMUM": "1",
+                "FLATAMOUNT1": "",
+                "FLATAMOUNT2": "",
+                "ASSOCIATEDCLASS": "5301",
+                "SSRCOMPONENT": "LEC",
+                "XLATLONGNAME": "Lecture",
+                "OPTIONALSECTION": "N",
+                "COUNTROWS": "0",
+                "CONSENT": "N",
+                "CRSTOPICID": "0",
+                "DESCR50": "",
+                "ENRLSTAT": "O",
+                "CLASSSTAT": "A",
+                "INSTRUCTIONMODE": "OL",
+                "SCTNCOMBINEDID": "",
+                "ACADGROUP": "LS",
+                "DESCR5": "Integrative Sciences & Arts",
+                "ACADORG": "CASA",
+                "DESCR501": "Applied Sciences and Arts",
+                "DESCR6": "School of Applied Sciences and Arts",
+                "SCHEDPRINTINSTR": "",
+                "ASUBLDLOCATION": " ",
+                "ASUBLDNAME": "INTRT",
+                "CRSEID1": null,
+                "CRSEOFFERNBR1": null,
+                "CRSEREPEATABLE": "N",
+                "GRADINGBASIS": null,
+                "XLATLONGNAME1": null,
+                "FEESEXIST": null,
+                "DESCRLONG1": null,
+                "RQRMNTGROUP": null,
+                "DESCR31": null,
+                "DESCR254A": null,
+                "RQMNTDESIGNTN1": null,
+                "DESCR41": null,
+                "DESCRFORMAL1": null,
+                "CLASSTYPE": "E",
+                "TERMBEGINDATE": "2025-08-21 00:00:00.0",
+                "TERMENDDATE": "2025-12-15 00:00:00.0",
+                "CAPNBR": "101",
+                "CAPSTARTDATE": "2025-02-12 00:00:00.0",
+                "ENROLLDEADLINE": "2025-10-16 00:00:00.0",
+                "DROPRETAINRECORD": "2025-10-21 00:00:00.0",
+                "DROPWITHPENALTY": "2025-11-04 00:00:00.0",
+                "WITHDRAWWITHPENALTY": "2025-12-05 00:00:00.0",
+                "PROMOD": "N",
+                "INSTRUCTOREDIT": "N",
+                "OFFICIALSTARTDATE": "2025-10-15 00:00:00.0",
+                "OFFICIALENDDATE": "2025-12-05 00:00:00.0",
+                "PROMODCOHORTCD": null,
+                "CLASSDESCR": "DISCOVERING THE PROFESSIONS",
+                "LASTFULLUPDATETIMESTAMP": 1744765591504,
+                "KEYWORDSEARCHSTR": "abs discovering the professions  applied biological sciences discovering the professions ",
+                "KEYWORDSEARCHSTRNOINSTRUCTOR": "abs discovering the professions  applied biological sciences discovering the professions ",
+                "CLASSNOTENBR": "",
+                "CRSEATTEFFDT": "",
+                "CRSEATTVALUE": "",
+                "SSRCOUNT": 1,
+                "HASACTIVERESERVEDSEATS": "Y",
+                "DAYLIST": "",
+                "NOTES": [],
+                "NOTESNUMBERS": [],
+                "IFRAMENOTES": null,
+                "SSR": "Lecture",
+                "PASSENROLLDEADLINE": null,
+                "PASSTERM": "Y",
+                "SHOWSUNNUM": "Y",
+                "MTGDATESSTRTIME": null,
+                "MULTIPLEMTGDATES": "N",
+                "LOCATIONBUILDING": "[{\"NAMEFORSORTING\":\"ASU ONLINE\",\"NAME\":\"ASU Online\",\"DESCR\":\"ASU Online\",\"ADDRESS\":\"Fully online, asynchronous courses available exclusively to ASU Online students.\",\"URL\":\"https://asuonline.asu.edu/\"}]",
+                "BLDGCD": null,
+                "ADDRESS1": "",
+                "ADDRESS2": "",
+                "ADDRESS3": "",
+                "CITY": "",
+                "STATE": "",
+                "ASUBLDADDRESS": "",
+                "SUBJECTDESCRIPTION": "Applied Biological Sciences",
+                "INSTRUCTORSLASTNAMELIST": null,
+                "INSTRUCTORSFIRSTNAMELIST": null,
+                "INSTRUCTORSLIST": null,
+                "INSTRUCTORSFIRSTNAMESHOWALL": null,
+                "INSTRUCTORSLASTNAMESHOWALL": null,
+                "INSTRUCTORLISTFORKEYWORD": null,
+                "INSTRUCTORSLASTNAMELISTFORSORTING": "STAFF",
+                "MEETINGDATES": [
+                    [
+                        "10/15/2025",
+                        "12/5/2025"
+                    ]
+                ],
+                "MEETINGDATESFORSORTING": 1760511600000,
+                "STARTTIMES": [
+                    null
+                ],
+                "ENDTIMES": [
+                    null
+                ],
+                "ASUBLDNAMELIST": "INTRT",
+                "STARTTIMESFORSORTING": null,
+                "ENDTIMEFORMATTED": "",
+                "CLASSDAYS": "",
+                "CATALOGNBRNUMBER": 100,
+                "UNITSRANGE": "1 ",
+                "ASSOCIATEDCLASSNOTNULL": "5301",
+                "SHORT_DESC": "",
+                "STARTTIMEFORMATTED": "",
+                "id": "77984"
+            },
+            "SUBJECTNUMBER": "ABS 100",
+            "SECTIONCLASSNUMBER": "5301-(77984)",
+            "DAYLIST": [
+                ""
+            ],
+            "NOTES": "",
+            "HOURS": "1",
+            "SSR": "Lecture",
+            "LOCATIONBUILDING": [
+                {
+                    "NAMEFORSORTING": "ASU ONLINE",
+                    "NAME": "ASU Online",
+                    "DESCR": "ASU Online",
+                    "ADDRESS": "Fully online, asynchronous courses available exclusively to ASU Online students.",
+                    "URL": "https://asuonline.asu.edu/"
+                }
+            ],
+            "MEETINGSTARTDATES": [],
+            "MTGDATES": [],
+            "GROUPORG": "Integrative Sciences & Arts - School of Applied Sciences and Arts",
+            "KEYWORDMATCH": {
+                "value": 1,
+                "description": "ConstantScore(SCHEDULEPRINT:y)",
+                "details": []
+            },
+            "GSGOLD": "",
+            "GSMAROON": "",
+            "OFFEREDBY": {
+                "DEPARTMENT": "School of Applied Sciences and Arts",
+                "INFO": {
+                    "ACADORG": "CLS",
+                    "ASUCOLLEGEURL": "https://cisa.asu.edu/",
+                    "DESCRFORMAL": "College of Integrative Sciences and Arts",
+                    "ENROLLREQ": null,
+                    "ACADGROUP": "LS"
+                }
+            },
+
+Param to search specific class is: https://eadvs-cscc-catalog-api.apps.asu.edu/catalog-microservices/api/v1/search/classes?&refine=Y&campusOrOnlineSelection=A&honors=F&keywords=Math&promod=F&searchType=all&term=2257
+
+keywords: Math
+
+The user when asked on Claude LLM about the ASU class/ courses, it should use this MCP tool in the mentioned EC2 instance and then fetch the relevant, accurate information and use that to answer the user question.
+
+Give me fully working code, steps for this project.
+

@@ -1,0 +1,13 @@
+[project]
+name = "asu-class-mcp"
+version = "0.1.0"
+description = "Expose ASU's class‑search API as a Model‑Context‑Protocol tool"
+authors = [{name = "Vikram BM"}]
+dependencies = [
+    "fastmcp>=2.1",
+    "httpx>=0.28",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
