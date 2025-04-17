@@ -29,4 +29,5 @@ async def search_asu_classes(params: SearchParams) -> dict:
         return r.json()
 
 if __name__ == "__main__":
-    mcp.run()      # reachable from other devices if needed
+    mcp.run("sse", host="0.0.0.0", port=8000)
+
